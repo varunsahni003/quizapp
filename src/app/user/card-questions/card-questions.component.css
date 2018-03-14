@@ -1,0 +1,23 @@
+.question-card {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 5%;
+  }
+  
+  .question-header-image {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg');
+    background-size: cover;
+  }
+
+  .radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+  
+  .selected-value {
+    margin: 15px 0;
+  }

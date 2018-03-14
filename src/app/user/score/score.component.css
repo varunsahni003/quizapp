@@ -1,0 +1,10 @@
+.answer-card {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 5%;
+  }
+  
+  .answer-header-image {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg');
+    background-size: cover;
+  }

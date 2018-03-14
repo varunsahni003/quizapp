@@ -1,0 +1,74 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav opened mode="side" class="sidenavLeft">
+      <h1>Quizes</h1>
+      <quizes></quizes>
+    </mat-sidenav>
+    <mat-sidenav opened mode="side" position="end" class="sidenavRight">
+      <h5>Leaderboard</h5>
+    </mat-sidenav>
+
+    <!-- <router-outlet></router-outlet> -->
+    <mat-card class="question-card">
+      <mat-card-header>
+        <div mat-card-avatar class="question-header-image"></div>
+        <mat-card-title>Angular quiz</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <p>
+          {{ currentQuestion }}
+        </p>
+        <mat-radio-group (change)="radioClicked(selectedAnswer)" class="radio-group" [(ngModel)]="selectedAnswer">
+            <mat-radio-button class="radio-button" *ngFor="let option of allQuestions[count].options" [value]="option">
+              {{ option }}
+            </mat-radio-button>
+          </mat-radio-group>
+          <div class="selected-value">Answer: {{ selectedAnswer }}</div>
+          <!-- <p *ngFor="let answers of allAnswers">{{ answers }}</p> -->
+      </mat-card-content>
+    </mat-card>
+
+
+
+    <mat-grid-list cols="10" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="1">
+          <button mat-raised-button color="warn" (click)="previousClicked()">Previous</button>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="1" *ngIf="!submitFlag">
+          <button mat-raised-button color="warn" (click)="nextClicked()">Next</button>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="submitFlag" colspan="3" rowspan="1">
+          <button mat-raised-button (click)="submit()">Submit</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+  
+    <mat-toolbar [hidden]="hideNavigation" color="warn" class="navgationToolbar">
+      <mat-toolbar-row>
+        <mat-button-toggle-group #group="matButtonToggleGroup">
+          <mat-button-toggle (click)="selectedQuestionNumber(questionNumber)" class="numberColor" value="questionNumber" *ngFor="let questionNumber of questionNumbers">
+            {{ questionNumber }}
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+          <!-- <div class="example-selected-value">Selected value: {{group.value}}</div> -->
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-grid-list cols="10" rowHeight="100px">
+      <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="3" rowspan="1">
+        <button mat-raised-button color="warn" (click)="questionsList()">Navigate</button>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3" rowspan="1"></mat-grid-tile>      
+      <mat-grid-tile colspan="1" rowspan="1">
+        <button mat-raised-button (click)="feedbackDialog()">Feedback</button>
+        <p *ngIf="giveFeedback">
+          Feedback: <i>{{ giveFeedback }}</i>
+        </p>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+</mat-sidenav-container>

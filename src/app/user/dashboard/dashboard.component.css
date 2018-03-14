@@ -1,0 +1,54 @@
+.sidenav-container {
+  position: fixed;
+  top: 10%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  }
+
+  .sidenavLeft {
+    width: 190px;
+    text-align: center;
+  }
+  .sidenavRight {
+    width: 250px;
+    text-align: center;
+  }
+
+
+  .question-card {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 5%;
+  }
+  
+  .question-header-image {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg');
+    background-size: cover;
+  }
+
+  .radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+  
+  .selected-value {
+    margin: 15px 0;
+  }
+
+  .example-selected-value {
+    margin: 15px 0;
+  }
+
+  .navgationToolbar {
+    width: 50%;
+    height: auto;
+    margin: auto;
+  }
+  .numberColor {
+    color: whitesmoke;
+  }
