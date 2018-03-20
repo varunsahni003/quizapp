@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterationComponent } from './auth/registeration/registeration.component';
+import { AuthGuard } from './services/auth-guard.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 const routes: Routes = [
   {
@@ -25,11 +27,13 @@ const routes: Routes = [
       },
       {
         path: 'admin',
-        loadChildren: './admin/admin.module#AdminModule'
+        loadChildren: './admin/admin.module#AdminModule',
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'user',
-        loadChildren: './user/user.module#UserModule'
+        loadChildren: './user/user.module#UserModule',
+        canActivate: [AuthGuard]
       },
       {
         path: 'reviewer',

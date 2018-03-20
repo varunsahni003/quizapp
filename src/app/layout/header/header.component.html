@@ -1,3 +1,1 @@
-<p>
-  header works!
-</p>
+<button *ngIf="authservice.isLoggedIn() && authservice.currentUser.admin" type="button" (click)="authservice.logout()" class="btn btn-sm btn-info"> Logout </button>
